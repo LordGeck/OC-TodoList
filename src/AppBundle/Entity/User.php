@@ -141,9 +141,6 @@ class User implements UserInterface
     {
         if ($this->tasks->contains($task)) {
             $this->tasks->removeElement($task);
-            if ($task->getUser() === $this) {
-                $task->setUser(null);
-            }
         }
 
         return $this;

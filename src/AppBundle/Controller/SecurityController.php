@@ -1,7 +1,9 @@
 <?php
+declare(strict_types = 1);
 
 namespace AppBundle\Controller;
 
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -11,7 +13,7 @@ class SecurityController extends Controller
     /**
      * @Route("/login", name="login")
      */
-    public function loginAction(Request $request)
+    public function loginAction(Request $request): Response
     {
         $authenticationUtils = $this->get('security.authentication_utils');
 
