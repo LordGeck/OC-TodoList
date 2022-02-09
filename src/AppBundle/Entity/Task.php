@@ -27,6 +27,7 @@ class Task
     /**
      * @ORM\Column(type="string")
      * @Assert\NotBlank(message="Vous devez saisir un titre.")
+     * @Assert\NotNull
      */
     private $title;
 
@@ -87,9 +88,11 @@ class Task
         return $this->content;
     }
 
-    public function setContent($content)
+    public function setContent($content): self
     {
         $this->content = $content;
+
+        return $this;
     }
 
     public function isDone(): bool
@@ -97,7 +100,7 @@ class Task
         return $this->isDone;
     }
 
-    public function toggle($flag)
+    public function toggle(bool $flag)
     {
         $this->isDone = $flag;
     }

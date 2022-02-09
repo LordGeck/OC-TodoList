@@ -57,7 +57,7 @@ class TaskVoter extends Voter
 
     private function canEdit(Task $task, User $user): bool
     {
-        return $user === $task->getUser();
+        return $user->getId() === $task->getUser()->getId();
     }
 
     private function canDelete(Task $task, User $user): bool
